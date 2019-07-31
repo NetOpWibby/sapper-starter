@@ -4,6 +4,8 @@
 
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
+You can change the port your Sapper app runs on by making changes to the `start` and `watch` scripts in `package.json`. If you intend on using [Cypress](cypress.io) to run tests, make sure to update `cypress.json` with your new port number as well.
+
 Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
 
 

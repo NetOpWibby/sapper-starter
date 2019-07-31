@@ -126,7 +126,7 @@ export default {
       commonjs()
     ],
     external: Object.keys(pkg.dependencies).concat(
-      require("module").builtinModules // || Object.keys(process.binding("natives")) // `process.binding` is deprecated
+      require("module").builtinModules
     ),
     onwarn
   },
