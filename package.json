@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "compression": "^1.7.4",
+    "open-color": "^1.7.0",
     "polka": "next",
     "sirv": "^0.4.2"
   },
@@ -20,6 +21,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/runtime": "^7.6.0",
     "@inc/eslint-config": "^2019.7.23",
+    "@inc/sasslint-config": "^2019.7.23",
     "cypress": "^3.4.1",
     "eslint": "^6.4.0",
     "husky": "^3.0.5",
@@ -34,6 +36,7 @@
     "rollup-plugin-terser": "^5.1.2",
     "sapper": "^0.27.8",
     "sass": "^1.23.0-module.beta.1",
+    "sass-lint": "^1.13.1",
     "snazzy": "^8.0.0",
     "standardx": "^5.0.0",
     "svelte": "^3.12.1",
@@ -52,18 +55,22 @@
   "private": true,
   "scripts": {
     "build": "sapper build --legacy",
+    "compress": "sass --load-path=node_modules --update sass:static --style compressed",
     "cy": "run-p --race dev cy:run",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "export": "sapper export --legacy",
     "format": "eslint . --fix",
     "postinstall": "link-module-alias",
-    "preinstall": "command -v link-module-alias; link-module-alias clean || true",
-    "start": "NODE_ENV=production PORT=3000 node __sapper__/build",
+    "preinstall": "command -v link-module-alias;link-module-alias clean || true",
+    "start": "rm -rf __sapper__;npm i;npm run build;npm run compress;NODE_ENV=production PORT=3000 node __sapper__/build",
     "test": "run-s test:*",
     "test:dependencies": "updates --update ./",
     "test:lint": "standardx --verbose | snazzy",
-    "watch": "NODE_ENV=development PORT=3000 sapper dev"
+    "test:sass": "sass-lint --config ./node_modules/@inc/sasslint-config/config.json --verbose",
+    "watch": "NODE_ENV=development PORT=3000 run-p watch:*",
+    "watch:app": "sapper dev",
+    "watch:sass": "sass --load-path=node_modules --watch sass:static --style compressed"
   },
   "standardx": {
     "ignore": [
@@ -71,5 +78,5 @@
       "static"
     ]
   },
-  "version": "2019.09.16"
+  "version": "2019.09.23"
 }

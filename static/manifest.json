@@ -12,7 +12,7 @@
       "src": "logo-512.png",
       "type": "image/png"
     }
-  ]
+  ],
   "name": "sapper-starter",
   "short_name": "sapper-starter",
   "start_url": "/",

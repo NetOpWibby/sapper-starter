@@ -32,6 +32,7 @@ const preprocess = sveltePreprocess({
         sass.render({
           data: content,
           includePaths: [
+            "sass",
             "src"
           ],
           sourceMap: true,

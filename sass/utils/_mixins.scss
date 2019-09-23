@@ -1,0 +1,19 @@
+@mixin center {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+@mixin clearfix {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@mixin font-mono {
+  font-family: monospace;
+}
+
+@mixin font-sans {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

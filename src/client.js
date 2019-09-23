@@ -11,5 +11,5 @@ import * as sapper from "@sapper/app";
 //  P R O G R A M
 
 sapper.start({
-  target: document.querySelector("#sapper")
+  target: document.querySelector("app")
 });
