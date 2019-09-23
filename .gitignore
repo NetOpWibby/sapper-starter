@@ -1,4 +1,5 @@
 # Files
+*.css
 *.map
 .DS_Store
 yarn-error.log
